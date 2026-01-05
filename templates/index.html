@@ -4,6 +4,85 @@
     <meta charset="UTF-8">
     <title>My Notes</title>
     <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+
+    <style>
+        body{
+    background-color: rgb(237, 235, 235);
+}
+
+
+.note{
+    flex-direction: row;
+    width: 500px;
+    height: 150px;
+    border-style: solid;
+    border-color: rgb(225, 225, 225);
+    border-radius: 6px;
+    padding: 10px;
+    vertical-align: top;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.parent{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 50px;
+}
+
+.name{
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.Add-button{
+    border: 0cap;
+    margin-top: 30px;
+    width: 130px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: rgb(95, 95, 254);
+    color: white;
+    transition: 1;
+    cursor: pointer;
+}
+
+.Add-button:hover{
+    background-color: rgb(67, 67, 255);
+    color: white;
+}
+
+.note::placeholder {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.note-item{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    font-weight: 200;
+}
+    </style>
+    
 </head>
 <body>
 
