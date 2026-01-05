@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Notes</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+</head>
+<body>
+
+    <div class="name">My Notes</div>
+
+    <div class="parent">
+        <form method="post" action="/add-note">
+            <div>
+                <textarea 
+                    name="content"
+                    placeholder="Write a note"
+                    class="note"
+                    required
+                ></textarea>
+            </div>
+
+            <div>
+                <button type="submit" class="Add-button">
+                    &#43; Add Note
+                </button>
+            </div>
+            {% for note in notes %}
+                <div class="note-item">{{ note }}</div>
+            {% endfor %}
+
+        </form>
+    </div>
+
+</body>
+</html>
