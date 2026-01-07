@@ -73,3 +73,14 @@ body{
     font-size: 15px;
     font-weight: 200;
 }
+.edit-button{
+    border: 0cap;
+    margin-top: 30px;
+    width: 130px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: rgb(95, 95, 254);
+    color: white;
+    transition: 1;
+    cursor: pointer;
+}

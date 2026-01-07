@@ -6,14 +6,19 @@ from fastapi.staticfiles import StaticFiles
 from starlette.middleware.sessions import SessionMiddleware
 import secrets
 import json
+import os 
+from dotenv import load_dotenv
 
+
+load_dotenv()
+secret_key = os.getenv("SECRET_KEY")
 json_path = "notes.json"
 
-notes = {}
+note_counter = 0
 
 app = FastAPI()
 
-app.add_middleware(SessionMiddleware, secret_key="JESUS_IS_LORD"+secrets.token_hex(16))
+app.add_middleware(SessionMiddleware, secret_key= secret_key, max_age=315360000)
 
 BASE_DIR = Path(__file__).resolve().parent
 templates = Jinja2Templates(directory= BASE_DIR/"templates")
@@ -35,17 +40,26 @@ def landing_page(request: Request):
 
 @app.post("/add-note", response_class=HTMLResponse)
 def add_note(request:Request, content:str = Form(...)):
+    global note_counter
     user_id = request.session.get("user_id")
     if not user_id:
         user_id = secrets.token_hex(16)
-    if user_id not in notes:
-        notes[user_id] = []
+
+    with open (file=json_path, mode="r") as f:
+        note_data = json.load(f)
+    if user_id not in note_data:
+        note_data[user_id] = []
     
-    notes[user_id].append(content)
+    note_counter += 1
+    new_note = {
+        "id": note_counter,
+        "content": content
+    }
+    
+    note_data[user_id].append(new_note)
 
     with open (file=json_path, mode="w") as f:
-        json.dump(notes, f, indent=4)
+        json.dump(note_data, f, indent=4)
         
-    with open (file=json_path, mode="r") as f:
-        notes_data = json.load(f)
     return RedirectResponse(url="/", status_code=303)
+

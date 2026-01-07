@@ -26,7 +26,12 @@
                 </button>
             </div>
                 {% for note in notes %}
-                <div class="note-item">{{ note }}</div>
+                <div class="note-item">
+                    <p>{{ note.content }}</p>
+                    <a href="/edit-note/{{ note.id }}">
+                        <button>Edit</button>
+                    </a>
+                </div>
                 {% endfor %}
 
         </form>
