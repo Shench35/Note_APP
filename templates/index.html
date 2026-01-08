@@ -19,22 +19,22 @@
                     required
                 ></textarea>
             </div>
-
             <div>
                 <button type="submit" class="Add-button">
                     &#43; Add Note
                 </button>
             </div>
+        </form>
+
                 {% for note in notes %}
                 <div class="note-item">
                     <p>{{ note.content }}</p>
                     <a href="/edit-note/{{ note.id }}">
-                        <button>Edit</button>
+                        <button class="edit-button">Edit</button>
                     </a>
                 </div>
                 {% endfor %}
 
-        </form>
     </div>
 
 </body>

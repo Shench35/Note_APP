@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 
 
 load_dotenv()
-secret_key = os.getenv("SECRET_KEY")
+secret_key = os.getenv("SECRET_KEY") 
 json_path = "notes.json"
 
 note_counter = 0
@@ -63,3 +63,36 @@ def add_note(request:Request, content:str = Form(...)):
         
     return RedirectResponse(url="/", status_code=303)
 
+@app.get("/edit-note/{note_id}", response_class=HTMLResponse)
+def edit_note(request:Request, note_id:int):
+    user_id = request.session.get("user_id", [])
+
+    with open(file=json_path,mode="r") as f :
+        notes_data = json.load(f)
+
+    user_note = notes_data.get(user_id,[])
+    print(user_note)
+    for i in user_note:
+        id = i.get("id")
+        if id == note_id:
+            print(i.get("content"))
+            return templates.TemplateResponse("edit.html",{"request": request ,"note_id": note_id, "note_content": i.get("content")})
+
+@app.post("/edit-note", response_class=HTMLResponse)
+def update_note(request: Request, note_id: int = Form(...), content: str = Form(...)):
+    user_id = request.session.get("user_id")
+
+    with open(file=json_path, mode="r") as f:
+        notes_data = json.load(f)
+
+    user_notes = notes_data.get(user_id, [])
+
+    for note in user_notes:
+        if note["id"] == note_id:
+            note["content"] = content
+            break
+
+    with open(file=json_path, mode="w") as f:
+        json.dump(notes_data, f, indent=4)
+
+    return RedirectResponse(url="/", status_code=303)
