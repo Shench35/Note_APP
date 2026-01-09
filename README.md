@@ -372,11 +372,13 @@ Building this project taught me valuable skills:
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page](screenshots/home.png)
+<img width="1135" height="970" alt="image" src="https://github.com/user-attachments/assets/6cdd177d-8951-4340-a5fd-f68685da0156" />
+
 *Main interface showing all notes with add functionality*
 
 ### Edit Note
-![Edit Note](screenshots/edit.png)
+<img width="969" height="544" alt="image" src="https://github.com/user-attachments/assets/390a8d74-9aab-429c-8dfc-3c44322f6e5b" />
+
 *Clean edit interface for modifying existing notes*
 
 > 📷 *Add screenshots to `screenshots/` folder in your repository*
