@@ -44,13 +44,13 @@ Traditional note-taking apps often require lengthy signup processes. This app pr
 ✅ **Instant Access** - No signup or login required  
 ✅ **Create Notes** - Add new notes with a simple, clean interface  
 ✅ **Edit Notes** - Modify existing notes anytime  
+✅ **Delete Notes** - Remove unwanted notes 
 ✅ **Persistent Sessions** - Your notes stay available for 10 years via secure cookies  
 ✅ **Privacy First** - Each user has a unique session ID, notes are private  
 ✅ **Responsive Design** - Clean, minimal interface  
 ✅ **Fast & Lightweight** - JSON-based storage for quick operations  
 
-### Coming Soon
-🚧 **Delete Notes** - Remove unwanted notes  
+### Coming Soon 
 🚧 **Note Categories** - Organize notes with tags  
 🚧 **Search Functionality** - Find notes quickly  
 🚧 **Export Notes** - Download your notes in various formats  
