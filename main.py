@@ -8,7 +8,11 @@ import secrets
 import json
 import os 
 from dotenv import load_dotenv
+from pydantic import BaseModel
 
+
+class Note(BaseModel):
+    content: str
 
 load_dotenv()
 secret_key = os.getenv("SECRET_KEY") 
@@ -94,5 +98,26 @@ def update_note(request: Request, note_id: int = Form(...), content: str = Form(
 
     with open(file=json_path, mode="w") as f:
         json.dump(notes_data, f, indent=4)
+
+    return RedirectResponse(url="/", status_code=303)
+
+@app.post("/delete-note")
+def delete_note(request: Request, note_id: int = Form(...)):
+    user_id = request.session.get("user_id")
+
+    if not user_id:
+        return RedirectResponse(url="/login", status_code=303)
+
+    with open(json_path, "r") as f:
+        note_data = json.load(f)
+
+    user_notes = note_data.get(user_id, [])
+
+    # Remove note safely
+    user_notes = [note for note in user_notes if note["id"] != note_id]
+    note_data[user_id] = user_notes
+
+    with open(json_path, "w") as f:
+        json.dump(note_data, f, indent=4)
 
     return RedirectResponse(url="/", status_code=303)

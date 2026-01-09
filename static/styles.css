@@ -35,23 +35,6 @@ body{
     font-weight: bolder;
 }
 
-.Add-button{
-    border: 0cap;
-    margin-top: 30px;
-    width: 130px;
-    height: 40px;
-    border-radius: 8px;
-    background-color: rgb(95, 95, 254);
-    color: white;
-    transition: 1;
-    cursor: pointer;
-}
-
-.Add-button:hover{
-    background-color: rgb(67, 67, 255);
-    color: white;
-}
-
 .note::placeholder {
     position: absolute;
     top: 10px;
@@ -73,14 +56,75 @@ body{
     font-size: 15px;
     font-weight: 200;
 }
-.edit-button{
-    border: 0cap;
+
+.btn-1 {
+    border: none;
     margin-top: 30px;
     width: 130px;
     height: 40px;
     border-radius: 8px;
     background-color: rgb(95, 95, 254);
     color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-1:hover {
+    background-color: rgb(13, 13, 194);
+}
+
+.btn-2 {
+    border: none;
+    margin-top: 30px;
+    width: 130px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: rgb(95, 95, 254);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-2:hover {
+    background-color: rgb(13, 13, 194);
+}
+
+.btn-3 {
+    border: none;
+    margin-top: 30px;
+    width: 130px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: rgb(95, 95, 254);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-3:hover {
+    background-color: rgb(13, 13, 194);
+}
+
+.delete-button{
+    border: 0cap;
+    margin-top: 30px;
+    width: 130px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: rgb(254, 72, 72);
+    color: white;
     transition: 1;
     cursor: pointer;
+    margin-left: 10px;
+}
+
+.delete-button:hover{
+    background-color: rgb(221, 9, 9);
+    color: white;
+}
+.note-actions{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
 }
